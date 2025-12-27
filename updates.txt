@@ -1,0 +1,3 @@
+{{(update 1, 28-12-2025)created app.py
+created login, register and dashboard pages for both consumer and user 
+added logout}}
