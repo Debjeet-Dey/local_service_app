@@ -1,3 +1,10 @@
 {{(update 1, 28-12-2025)created app.py
 created login, register and dashboard pages for both consumer and user 
 added logout, initial commit}}
+
+{{"with app.app_context():
+    service_request.__table__.drop(db.engine)
+    print("Table dropped successfully.")" very important code- to remove tables or droping tables
+    login encryption, session creation
+    data pass on to various pages encryptedly, without showing data in url
+    add service request working}}
