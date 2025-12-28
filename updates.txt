@@ -10,3 +10,5 @@ added logout, initial commit}}
     add service request working}}
 
 {{can fetch and retrive data from and to consumer dashboard for showing number of service requests}}
+
+{{can fetch to provider dashboard and changes to service_request.html-added leaflet and updated col of service_request data where consumer latitude and longitude will be added on each service request}}
