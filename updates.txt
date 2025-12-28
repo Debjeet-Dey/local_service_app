@@ -8,3 +8,5 @@ added logout, initial commit}}
     login encryption, session creation
     data pass on to various pages encryptedly, without showing data in url
     add service request working}}
+
+{{can fetch and retrive data from and to consumer dashboard for showing number of service requests}}
