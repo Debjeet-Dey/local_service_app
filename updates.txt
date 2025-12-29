@@ -35,3 +35,5 @@ added logout, initial commit}}
 {{provider_dashboard.html UI update and clean up}}
 
 {{edit_bid.html and place_bid.html UI update and clean up}}
+
+{{my_works.html and view_bids.html UI update and clean up}}
