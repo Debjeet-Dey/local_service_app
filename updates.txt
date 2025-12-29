@@ -33,3 +33,5 @@ added logout, initial commit}}
 {{service_request.html UI update and clean up}}
 
 {{provider_dashboard.html UI update and clean up}}
+
+{{edit_bid.html and place_bid.html UI update and clean up}}
