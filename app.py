@@ -239,6 +239,48 @@ def accept_bid(bid_id):
     flash(f'Bid accepted! Provider ID {winning_bid.prov_id} has been assigned.')
     return redirect(url_for('consumer_dashboard'))
 
+
+@app.route('/my_orders')
+def my_orders():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    
+    con_id = session['user_id']
+    
+    # Fetch requests created by this consumer that are EITHER active OR in progress
+    # We join with 'users' (provider) to show who is doing the work
+    # We use an outer join (isouter=True) because some requests might not have a provider yet
+    
+    orders = db.session.query(service_request, users).outerjoin(users, service_request.assigned_provider_id == users.id)\
+        .filter(service_request.consumer_id == con_id).all()
+        
+    return render_template('consumer/my_orders.html', orders=orders)
+
+@app.route('/close_order/<int:req_id>')
+def close_order(req_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    
+    req = service_request.query.get_or_404(req_id)
+    
+    # Security check
+    if req.consumer_id != session['user_id']:
+        flash("Unauthorized")
+        return redirect(url_for('consumer_dashboard'))
+        
+    # Mark as completed (You might want a new boolean 'is_completed' in your model, 
+    # but for now, we can just set is_inprogress=False and is_active=False)
+    
+    req.is_inprogress = False
+    req.is_active = False
+    
+    # Optional: Delete the request or move to a 'history' table if you prefer
+    # For now, we keep it but it's just 'inactive'
+    
+    db.session.commit()
+    flash("Order marked as completed!")
+    return redirect(url_for('my_orders'))
+
 @app.route('/provider_dashboard')
 def provider_dashboard():
     if 'user_id' not in session:
