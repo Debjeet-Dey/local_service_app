@@ -329,10 +329,10 @@ def my_works():
     prov_id = session['user_id']
     
     # Fetch requests where this provider is the 'assigned_provider_id'
-    # We also join with 'users' (consumer) to get their contact info
+    # We join with 'users' to get the Consumer's name and email
     jobs = db.session.query(service_request, users).join(users, service_request.consumer_id == users.id)\
         .filter(service_request.assigned_provider_id == prov_id)\
-        .filter(service_request.is_inprogress == True).all() # Only show active jobs
+        .filter(service_request.is_inprogress == True).all() 
         
     return render_template('provider/my_works.html', jobs=jobs)
 

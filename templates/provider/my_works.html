@@ -11,12 +11,12 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
-        
+
         {% if jobs|length == 0 %}
-            <div class="col-12 text-center mt-5">
-                <h5 class="text-muted">You have no active jobs right now.</h5>
-                <a href="{{ url_for('provider_dashboard') }}" class="btn btn-primary mt-3">Go to Marketplace</a>
-            </div>
+        <div class="col-12 text-center mt-5">
+            <h5 class="text-muted">You have no active jobs right now.</h5>
+            <a href="{{ url_for('provider_dashboard') }}" class="btn btn-primary mt-3">Go to Marketplace</a>
+        </div>
         {% endif %}
 
         {% for req, consumer in jobs %}
@@ -30,25 +30,27 @@
                     <h5 class="card-title">Customer: {{ consumer.full_name }}</h5>
                     <p class="card-text">
                         <strong>Description:</strong> {{ req.desc }}<br>
-                        <strong>Agreed Budget:</strong> ${{ req.budget }}
+                        <strong>Agreed Budget:</strong> ₹{{ req.budget }}
                     </p>
-                    
+
                     <hr>
-                    
+
                     <h6>Contact Details:</h6>
                     <ul class="list-group list-group-flush mb-3">
                         <li class="list-group-item">
-                            <i class="bi bi-envelope"></i> Email: <a href="mailto:{{ consumer.email }}">{{ consumer.email }}</a>
+                            <i class="bi bi-envelope"></i> Email: <a href="mailto:{{ consumer.email }}">{{
+                                consumer.email }}</a>
                         </li>
                         <li class="list-group-item">
-                            <i class="bi bi-geo-alt"></i> Location Coords: {{ req.con_latitude }}, {{ req.con_longitude }}
+                            <i class="bi bi-geo-alt"></i> Location Coords: {{ req.con_latitude }}, {{ req.con_longitude
+                            }}
                         </li>
                     </ul>
 
                     <div class="d-grid gap-2">
-                        <a href="https://www.google.com/maps/search/?api=1&query={{ req.con_latitude }},{{ req.con_longitude }}" 
-                           target="_blank" class="btn btn-outline-success">
-                           Open Location in Google Maps
+                        <a href="https://www.google.com/maps?q={{ req.con_latitude }},{{ req.con_longitude }}"
+                            target="_blank" class="btn btn-outline-success">
+                            Open Location in Google Maps
                         </a>
                     </div>
                 </div>

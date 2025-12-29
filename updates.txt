@@ -19,3 +19,7 @@ added logout, initial commit}}
 {{place bid button and place bid html page, new bids database and pushing bid data to bids database}}
 
 {{place bids updates on provider dashboard, and shows a tick mark thats indicates that bid has been placed || place bids and edit button functionality based on bids placed}}
+
+{{consumer view bids and accept bids functionality}}
+
+{{provider can see there active jobs in my works section and can get redirected to Google maps for location}}
