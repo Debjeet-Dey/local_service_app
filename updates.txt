@@ -27,3 +27,5 @@ added logout, initial commit}}
 {{consumer can now view assigned job in my orders section, with active indication, and now can mark "as completed" when completed }}
 
 {{UI clean up and changes to login and register page}}
+
+{{consumer_dashboard.html UI update and clean up}}
