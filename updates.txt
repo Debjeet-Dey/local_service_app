@@ -23,3 +23,5 @@ added logout, initial commit}}
 {{consumer view bids and accept bids functionality}}
 
 {{provider can see there active jobs in my works section and can get redirected to Google maps for location}}
+
+{{consumer can now view assigned job in my orders section, with active indication, and now can mark "as completed" when completed }}
