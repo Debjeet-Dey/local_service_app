@@ -49,3 +49,5 @@ added logout, initial commit}}
 {{env changes }}
 
 {{Force PostgreSQL in production}}
+
+{{deleted files hardcoded env}}
