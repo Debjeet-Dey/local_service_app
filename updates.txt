@@ -29,3 +29,5 @@ added logout, initial commit}}
 {{UI clean up and changes to login and register page}}
 
 {{consumer_dashboard.html UI update and clean up}}
+
+{{service_request.html UI update and clean up}}
