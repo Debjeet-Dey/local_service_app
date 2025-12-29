@@ -25,3 +25,5 @@ added logout, initial commit}}
 {{provider can see there active jobs in my works section and can get redirected to Google maps for location}}
 
 {{consumer can now view assigned job in my orders section, with active indication, and now can mark "as completed" when completed }}
+
+{{UI clean up and changes to login and register page}}
