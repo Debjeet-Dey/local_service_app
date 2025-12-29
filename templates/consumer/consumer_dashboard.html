@@ -49,8 +49,8 @@
             <h5 class="card-title">{{request.service_type}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{request.budget}}</h6>
             <p class="card-text">{{request.desc}}</p>
-            <a href="/consumer/view-lot/1" class="card-link">View Bids</a>
-            <a href="/consumer/book-slot/1" class="card-link">Details</a>
+            <a href="{{url_for('view_bids',req_id=request.id)}}" class="btn btn-primary" role="button">View Bids</a>
+            <a href="#" class="btn btn-secondary" role="button">Details</a>
 
           </div>
         </div>
