@@ -43,3 +43,5 @@ added logout, initial commit}}
 {{bids indicating spinner in consumer dashboard || UI improvement in provider dashboard || }}
 
 {{updated requirements.txt}}
+
+{{changes done for deployment}}
