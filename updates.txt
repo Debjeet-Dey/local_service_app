@@ -31,3 +31,5 @@ added logout, initial commit}}
 {{consumer_dashboard.html UI update and clean up}}
 
 {{service_request.html UI update and clean up}}
+
+{{provider_dashboard.html UI update and clean up}}
