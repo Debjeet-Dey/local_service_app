@@ -103,6 +103,10 @@ class reviews(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
 
 
+with app.app_context():
+    db.create_all()
+
+
 @app.route('/', methods=['GET', 'POST'])#login
 def login():
     if request.method == 'POST':
@@ -487,7 +491,4 @@ def logout():
 
 
 
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run()
+

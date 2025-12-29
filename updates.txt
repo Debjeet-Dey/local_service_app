@@ -51,3 +51,5 @@ added logout, initial commit}}
 {{Force PostgreSQL in production}}
 
 {{deleted files hardcoded env}}
+
+{{app.py db table initialization changes}}
