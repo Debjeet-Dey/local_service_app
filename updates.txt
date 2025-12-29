@@ -39,3 +39,5 @@ added logout, initial commit}}
 {{my_works.html and view_bids.html UI update and clean up}}
 
 {{my_orders.html UI update and clean up}}
+
+{{bids indicating spinner in consumer dashboard || UI improvement in provider dashboard || }}
