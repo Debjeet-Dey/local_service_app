@@ -12,14 +12,14 @@ load_dotenv()
 app = Flask(__name__)
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Fix Render postgres:// issue
-if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL is NOT set. App must use PostgreSQL.")
+
+if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-if DATABASE_URL:
-    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///instance/mydatabase.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+
 
 db = SQLAlchemy(app)
 

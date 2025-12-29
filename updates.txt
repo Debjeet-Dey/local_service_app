@@ -47,3 +47,5 @@ added logout, initial commit}}
 {{changes done for deployment}}
 
 {{env changes }}
+
+{{Force PostgreSQL in production}}
