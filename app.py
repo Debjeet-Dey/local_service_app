@@ -49,6 +49,18 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 # 2. Register it so Jinja can use it
 app.jinja_env.globals.update(distance_km=calculate_distance)
 
+def consumer_required():
+    if 'user_id' not in session or session.get('role') != 'consumer':
+        flash('Unauthorized access.', 'danger')
+        return redirect(url_for('login'))
+    
+def provider_required():
+    if 'user_id' not in session or session.get('role') != 'provider':
+        flash('Unauthorized access.', 'danger')
+        return redirect(url_for('login'))
+    
+
+
 class users(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -115,7 +127,9 @@ def login():
         
         user = users.query.filter_by(email=email).first()
         if user and check_password_hash(user.password_hash, password):
+            session.clear()
             session['user_id'] = user.id
+            session['role'] = 'consumer' if user.is_consumer else 'provider'
             flash('Logged in successfully!')
             # print('login suck')
             # print(user.id)
@@ -181,6 +195,9 @@ def register():
 
 @app.route('/consumer_dashboard')
 def consumer_dashboard():
+    guard = consumer_required()
+    if guard:
+        return guard
     if 'user_id' not in session:
         return redirect(url_for('login'))
     id=session['user_id']
@@ -354,6 +371,9 @@ def close_order(req_id):
 
 @app.route('/provider_dashboard')
 def provider_dashboard():
+    guard = provider_required()
+    if guard:
+        return guard
     if 'user_id' not in session:
         return redirect(url_for('login'))
     id=session['user_id']
