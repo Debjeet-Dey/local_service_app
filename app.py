@@ -130,7 +130,7 @@ def login():
     
     return render_template('auth/login.html')
 
-app.route('/register', methods=['GET', 'POST']) #signup
+@app.route('/register', methods=['GET', 'POST']) #signup
 def register():
     if request.method == "POST":
         email = request.form['email']
