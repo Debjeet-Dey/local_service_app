@@ -53,3 +53,5 @@ added logout, initial commit}}
 {{deleted files hardcoded env}}
 
 {{app.py db table initialization changes}}
+
+{{refined the service_request portray algorithm on both consumer and provider, register and login message fixes and minor changes }}
